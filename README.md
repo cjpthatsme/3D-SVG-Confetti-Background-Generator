@@ -93,7 +93,6 @@ That's it! 🎊
 | `ribbonWeights` | Array | [1,1,1,1,1,1,1,1,1] | Weights for each ribbon shape (higher = more frequent) |
 
 ### Ribbon Shapes (0-8)
-## Note: Changing the svg files won't update the shapes as they are created in the code. You will have to make template functions if you want to override the shapes.
 
 - **0**: Complex twisted ribbon (large)
 - **1**: Curved flowing ribbon (medium)
@@ -104,6 +103,9 @@ That's it! 🎊
 - **6**: Thin twisted ribbon (small)
 - **7**: Minimal curved ribbon (tiny)
 - **8**: Simple rectangular ribbon (tiny)
+
+##Note:## Changing the svg files won't update the shapes as they are created in the code. You will have to make template functions if you want to override the shapes.
+[More about making ribbon templates](svg/RIBBON_TEMPLATE_README.md)
 
 ## 💡 Usage Examples
 
