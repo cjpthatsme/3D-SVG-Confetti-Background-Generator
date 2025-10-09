@@ -270,9 +270,9 @@ Tested on:
 
 ## 🙏 Credits
 
-Created with ❤️ by [Your Name]
+Created with ❤️ by Chris Page
 
-Custom SVG ribbon designs included.
+SVG ribbon designs included.
 
 ---
 
