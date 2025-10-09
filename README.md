@@ -2,7 +2,7 @@
 
 A beautiful, performant SVG confetti background with depth of field, parallax scrolling, and dynamic color gradients.
 
-![Confetti Background Demo](https://codepen.io/cjpthatsme/pen/EaPWJXB)
+[Confetti Background Demo](https://codepen.io/cjpthatsme/pen/EaPWJXB)
 
 ## ✨ Features
 
