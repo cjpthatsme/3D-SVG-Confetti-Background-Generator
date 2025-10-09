@@ -104,7 +104,7 @@ That's it! 🎊
 - **7**: Minimal curved ribbon (tiny)
 - **8**: Simple rectangular ribbon (tiny)
 
-##Note:## Changing the svg files won't update the shapes as they are created in the code. You will have to make template functions if you want to override the shapes.
+**Note:** Changing the svg files won't update the shapes as they are created in the code. You will have to make template functions if you want to override the shapes.
 [More about making ribbon templates](svg/RIBBON_TEMPLATE_README.md)
 
 ## 💡 Usage Examples
