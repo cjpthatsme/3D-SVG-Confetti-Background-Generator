@@ -93,6 +93,7 @@ That's it! 🎊
 | `ribbonWeights` | Array | [1,1,1,1,1,1,1,1,1] | Weights for each ribbon shape (higher = more frequent) |
 
 ### Ribbon Shapes (0-8)
+## Note: Changing the svg files won't update the shapes as they are created in the code. You will have to make template functions if you want to override the shapes.
 
 - **0**: Complex twisted ribbon (large)
 - **1**: Curved flowing ribbon (medium)
@@ -237,7 +238,7 @@ new ConfettiBackground('#fg-layer', {
 confetti/
 ├── confetti_background.js    # Main library file
 ├── demo.html                 # Demo page
-├── more different/           # Original SVG ribbon files
+├── svg/                      # Original SVG ribbon files
 │   ├── ribbon2-01.svg
 │   ├── ribbon2-02.svg
 │   └── ...
