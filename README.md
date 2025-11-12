@@ -297,13 +297,5 @@ Tested on:
 - Safari (latest)
 - Mobile browsers
 
-## 🙏 Credits
 
-Created with ❤️ by [Your Name]
-
-Custom SVG ribbon designs included.
-
----
-
-**Need help?** Check this README or the demo for configuration examples!
 
