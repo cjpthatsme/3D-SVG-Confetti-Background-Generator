@@ -2,8 +2,6 @@
 
 A beautiful, performant SVG confetti background with depth of field, parallax scrolling, and dynamic color gradients.
 
-![Confetti Background Demo](demo-screenshot.png)
-
 ## ✨ Features
 
 - **9 Custom SVG Ribbon Shapes** - Handcrafted, varied designs from complex to simple
