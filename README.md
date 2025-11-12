@@ -2,19 +2,23 @@
 
 A beautiful, performant SVG confetti background with depth of field, parallax scrolling, and dynamic color gradients.
 
-[Confetti Background Demo](https://codepen.io/cjpthatsme/pen/EaPWJXB)
+![Confetti Background Demo](demo-screenshot.png)
 
 ## ✨ Features
 
 - **9 Custom SVG Ribbon Shapes** - Handcrafted, varied designs from complex to simple
 - **Depth of Field Blur** - Cinematic focus effect with foreground and background blur
 - **Parallax Scrolling** - Depth-based scroll speed for 3D effect
+- **Optional Gravity** - Toggle falling motion with adjustable strength
+- **Optional Wind** - Drift confetti horizontally, with stronger effect on small pieces
 - **Dynamic Sizing** - Ribbons scale based on their depth (far = small, near = large)
 - **Harmonious Gradients** - Color selection favors adjacent colors in palette
 - **Weighted Shape Selection** - Control which ribbon shapes appear more frequently
 - **3D Shadow Effects** - Realistic drop shadows for added depth
+- **Configurable Shadows** - Override the drop-shadow color with any RGBA value
 - **Highly Configurable** - Easy-to-use options API
 - **Zero Dependencies** - Pure JavaScript, no external libraries
+- **Auto Layering** - SVG layer injected automatically, keeping your markup minimal
 
 ## 🚀 Quick Start
 
@@ -37,6 +41,8 @@ const confetti = new ConfettiBackground('#confetti-container');
 ```
 
 That's it! 🎊
+
+> The library injects an absolutely positioned `.confetti-background-layer` inside your container (before your content) so you don't need to manually create extra wrappers.
 
 ## 📖 Full Example
 
@@ -88,9 +94,15 @@ That's it! 🎊
 | `count` | Number | 100 | Number of confetti pieces to generate |
 | `colors` | Array | [11 colors] | Array of hex color codes for gradients |
 | `parallax` | Boolean | true | Enable/disable parallax scrolling effect |
-| `minSize` | Number | 50 | Minimum confetti size in viewBox units |
-| `maxSize` | Number | 100 | Maximum confetti size in viewBox units |
+| `wind` | Boolean / Number | 0 | Enable horizontal drift. Pass `true` for default strength, a positive number for rightward drift, or a negative number for leftward |
+| `gravity` | Boolean / Number | 0 | Enable falling motion. Pass `true` for default speed or a number for custom strength |
+| `minSize` | Number | 25 | Minimum confetti size in viewBox units |
+| `maxSize` | Number | 75 | Maximum confetti size in viewBox units |
 | `ribbonWeights` | Array | [1,1,1,1,1,1,1,1,1] | Weights for each ribbon shape (higher = more frequent) |
+| `clipToBounds` | Boolean | true | Automatically sets `overflow:hidden` and `position:relative` on the target so confetti stays inside |
+| `shadowColor` | String | `'rgba(0, 0, 0, 0.35)'` | Drop-shadow color (alpha supported via RGBA) |
+| `useSnowflakes` | Boolean | false | Swap in the built-in snowflake templates instead of ribbons |
+| `blurMultiplier` | Number | 1 | Scales the depth-of-field blur. Values > 1 increase blur; 0 disables it |
 
 ### Ribbon Shapes (0-8)
 
@@ -103,9 +115,6 @@ That's it! 🎊
 - **6**: Thin twisted ribbon (small)
 - **7**: Minimal curved ribbon (tiny)
 - **8**: Simple rectangular ribbon (tiny)
-
-**Note:** Changing the svg files won't update the shapes as they are created in the code. You will have to make template functions if you want to override the shapes.
-[More about making ribbon templates](svg/RIBBON_TEMPLATE_README.md)
 
 ## 💡 Usage Examples
 
@@ -152,6 +161,32 @@ new ConfettiBackground('#container', {
 });
 ```
 
+### Use Snowflakes
+
+```javascript
+new ConfettiBackground('#container', {
+    useSnowflakes: true,            // switch to snowflake templates
+    colors: ['#FFFFFF', '#CDEBFF'], // softer winter palette
+    shadowColor: 'rgba(0, 50, 100, 0.25)'
+});
+```
+
+### Enable Gravity
+
+```javascript
+new ConfettiBackground('#container', {
+    gravity: true // or provide a custom number, e.g. 80
+});
+```
+
+### Add Wind Drift
+
+```javascript
+new ConfettiBackground('#container', {
+    wind: 120 // stronger values = more sway; use negative values to blow left
+});
+```
+
 ### Multiple Selectors
 
 ```javascript
@@ -180,14 +215,6 @@ const confetti = new ConfettiBackground('#container');
 
 // Later...
 confetti.regenerate();
-```
-
-### `help()` (Static)
-
-Display comprehensive help in the console.
-
-```javascript
-ConfettiBackground.help();
 ```
 
 ## 🎨 Color Selection Algorithm
@@ -240,7 +267,7 @@ new ConfettiBackground('#fg-layer', {
 confetti/
 ├── confetti_background.js    # Main library file
 ├── demo.html                 # Demo page
-├── svg/                      # Original SVG ribbon files
+├── more different/           # Original SVG ribbon files
 │   ├── ribbon2-01.svg
 │   ├── ribbon2-02.svg
 │   └── ...
@@ -272,11 +299,11 @@ Tested on:
 
 ## 🙏 Credits
 
-Created with ❤️ by Chris Page
+Created with ❤️ by [Your Name]
 
-SVG ribbon designs included.
+Custom SVG ribbon designs included.
 
 ---
 
-**Need help?** Run `ConfettiBackground.help()` in your browser console for interactive documentation!
+**Need help?** Check this README or the demo for configuration examples!
 

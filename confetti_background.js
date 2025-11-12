@@ -61,6 +61,25 @@ const ribbonTemplates = [
     }
 ];
 
+const snowflakeTemplates = [
+    (color1, color2) => {
+        const gradientId = getUniqueId();
+        return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 83.61 96.1"><defs><linearGradient id="${gradientId}" x1="0" y1="0" x2="83.61" y2="96.1" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="${color1}"/><stop offset="1" stop-color="${color2}"/></linearGradient></defs><path d="M12.29,33.01l-8.04,2.16c-.77.21-1.57-.25-1.78-1.02L.05,25.12c-.21-.77.25-1.57,1.02-1.78l9.02-2.42c.77-.21,1.57.25,1.78,1.02l2.16,8.04,3.48,2.01-1.75-5.11c-.31-.91.17-1.9,1.08-2.21.91-.31,1.9.17,2.21,1.08l3.04,8.88,4.46,2.57-4.61-13.47c-.31-.91.17-1.9,1.08-2.21.91-.31,1.9.17,2.21,1.08l5.9,17.24,2.63,1.52-2.88-8.86c-.02-.05-.03-.11-.05-.16-.07-.29-.06-.58.01-.85.07-.27.21-.53.42-.75.11-.12.25-.23.39-.31.15-.09.3-.15.47-.19.29-.07.58-.06.85.01.27.07.53.21.75.42.04.04.08.08.12.12l6.24,6.92v-3.03l-11.98-13.73c-.63-.72-.56-1.82.17-2.45.72-.63,1.82-.56,2.45.17l9.36,10.72v-5.15l-6.17-7.07c-.63-.72-.56-1.82.17-2.45s1.82-.56,2.45.17l3.55,4.07v-4.02l-5.89-5.89c-.57-.57-.57-1.48,0-2.05L40.78.42c.57-.57,1.48-.57,2.05,0l6.6,6.6c.57.57.57,1.48,0,2.05l-5.89,5.89v4.02l3.55-4.07c.63-.72,1.73-.8,2.45-.17.72.63.8,1.73.17,2.45l-6.17,7.07v5.15l9.36-10.72c.63-.72,1.73-.8,2.45-.17.72.63.8,1.73.17,2.45l-11.98,13.73v3.03l6.24-6.92s.08-.08.12-.12c.22-.2.47-.34.75-.42.27-.07.56-.08.85-.01.16.04.32.1.47.19.15.09.28.19.39.31.2.22.34.47.42.75.07.27.08.56.01.85-.01.05-.03.11-.05.16l-2.88,8.86,2.63-1.52,5.9-17.24c.31-.91,1.3-1.39,2.21-1.08.91.31,1.39,1.3,1.08,2.21l-4.61,13.47,4.46-2.57,3.04-8.88c.31-.91,1.3-1.39,2.21-1.08.91.31,1.39,1.3,1.08,2.21l-1.75,5.11,3.48-2.01,2.16-8.04c.21-.77,1-1.23,1.78-1.02l9.02,2.42c.77.21,1.23,1,1.02,1.78l-2.42,9.02c-.21.77-1,1.23-1.78,1.02l-8.04-2.16-3.48,2.01,5.3,1.04c.94.19,1.56,1.1,1.37,2.04-.19.94-1.1,1.56-2.04,1.37l-9.21-1.81-4.46,2.57,13.97,2.74c.94.19,1.56,1.1,1.37,2.04-.19.94-1.1,1.56-2.04,1.37l-17.88-3.51-2.63,1.52,9.11,1.94c.06.01.11.02.16.04.29.08.53.24.73.44.2.2.35.45.44.73.05.16.07.33.07.5,0,.17-.03.34-.07.5-.08.29-.24.53-.44.73-.2.2-.45.35-.73.44-.05.02-.11.03-.16.04l-9.11,1.94,2.63,1.52,17.88-3.51c.94-.19,1.86.43,2.04,1.37.19.94-.43,1.86-1.37,2.04l-13.97,2.74,4.46,2.57,9.21-1.81c.94-.19,1.86.43,2.04,1.37.19.94-.43,1.86-1.37,2.04l-5.3,1.04,3.48,2.01,8.04-2.16c.77-.21,1.57.25,1.78,1.02l2.42,9.02c.21.77-.25,1.57-1.02,1.78l-9.02,2.42c-.77.21-1.57-.25-1.78-1.02l-2.16-8.04-3.48-2.01,1.75,5.11c.31.91-.17,1.9-1.08,2.21-.91.31-1.9-.17-2.21-1.08l-3.04-8.88-4.46-2.57,4.61,13.47c.31.91-.17,1.9-1.08,2.21-.91.31-1.9-.17-2.21-1.08l-5.9-17.24-2.63-1.52,2.88,8.86c.02.05.03.11.05.16.07.29.06.58-.01.85-.07.27-.21.53-.42.75-.11.12-.25.23-.39.31-.15.09-.3.15-.47.19-.29.07-.58.06-.85-.01-.27-.07-.53-.21-.75-.42-.04-.04-.08-.08-.12-.12l-6.24-6.92v3.03l11.98,13.73c.63.72.56,1.82-.17,2.45-.72.63-1.82.56-2.45-.17l-9.36-10.72v5.15l6.17,7.07c.63.72.56,1.82-.17,2.45-.72.63-1.82.56-2.45-.17l-3.55-4.07v4.02l5.89,5.89c.57.57.57,1.48,0,2.05l-6.6,6.6c-.57.57-1.48.57-2.05,0l-6.6-6.6c-.57-.57-.57-1.48,0-2.05l5.89-5.89v-4.02l-3.55,4.07c-.63.72-1.73.8-2.45.17-.72-.63-.8-1.73-.17-2.45l6.17-7.07v-5.15l-9.36,10.72c-.63.72-1.73.8-2.45.17-.72-.63-.8-1.73-.17-2.45l11.98-13.73v-3.03l-6.24,6.92s-.08.08-.12.12c-.22.2-.47.34-.75.42-.27.07-.56.08-.85.01-.16-.04-.32-.1-.47-.19-.15-.09-.28-.19-.39-.31-.2-.22-.34-.47-.42-.75-.07-.27-.08-.56-.01-.85.01-.05.03-.11.05-.16l2.88-8.86-2.63,1.52-5.9,17.24c-.31.91-1.3,1.39-2.21,1.08-.91-.31-1.39-1.3-1.08-2.21l4.61-13.47-4.46,2.57-3.04,8.88c-.31.91-1.3,1.39-2.21,1.08-.91-.31-1.39-1.3-1.08-2.21l1.75-5.11-3.48,2.01-2.16,8.04c-.21.77-1,1.23-1.78,1.02l-9.02-2.42c-.77-.21-1.23-1-1.02-1.78l2.42-9.02c.21-.77,1-1.23,1.78-1.02l8.04,2.16,3.48-2.01-5.3-1.04c-.94-.19-1.56-1.1-1.37-2.04.19-.94,1.1-1.56,2.04-1.37l9.21,1.81,4.46-2.57-13.97-2.74c-.94-.19-1.56-1.1-1.37-2.04.19-.94,1.1-1.56,2.04-1.37l17.88,3.51,2.63-1.52-9.11-1.94c-.06-.01-.11-.02-.16-.04-.29-.08-.53-.24-.73-.44-.2-.2-.35-.45-.44-.73-.05-.16-.07-.33-.07-.5,0-.17.03-.34.07-.5.08-.29.24-.53.44-.73.2-.2.45-.35.73-.44.05-.02.11-.03.16-.04l9.11-1.94-2.63-1.52-17.88,3.51c-.94.19-1.86-.43-2.04-1.37-.19-.94.43-1.86,1.37-2.04l13.97-2.74-4.46-2.57-9.21,1.81c-.94.19-1.86-.43-2.04-1.37-.19-.94.43-1.86,1.37-2.04l5.3-1.04-3.48-2.01Z" style="fill:url(#${gradientId}); fill-rule:evenodd; stroke-width:0px;"/></svg>`;
+    },
+    (color1, color2) => {
+        const gradientId = getUniqueId();
+        return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80.12 92.02"><defs><linearGradient id="${gradientId}" x1="0" y1="0" x2="80.12" y2="92.02" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="${color1}"/><stop offset="1" stop-color="${color2}"/></linearGradient></defs><path d="M5.15,64.74l-4.28-1.74c-.71-.29-1.05-1.1-.76-1.81.29-.71,1.1-1.05,1.81-.76l5.91,2.41c.09.04.17.08.24.13l2.54-1.55-8.03-3.27c-.71-.29-1.05-1.1-.76-1.81.29-.71,1.1-1.05,1.81-.76l9.85,4.01s.06.02.08.04l3.38-2.06-12.47-5.07c-.71-.29-1.05-1.1-.76-1.81.29-.71,1.1-1.05,1.81-.76l14.37,5.85,3.18-1.94-15.92-6.48c-.71-.29-1.05-1.1-.76-1.81.07-.17.17-.32.29-.45.1-.41.4-.78.82-.95l15.11-6.15-3.18-1.94-13.56,5.52c-.71.29-1.52-.05-1.81-.76-.29-.71.05-1.52.76-1.81l11.66-4.74-3.38-2.06-9.12,3.71c-.71.29-1.52-.05-1.81-.76-.29-.71.05-1.52.76-1.81l7.22-2.94-2.51-1.54-5.37,2.19c-.71.29-1.52-.05-1.81-.76-.29-.71.05-1.52.76-1.81l3.47-1.41-4.07-2.49c-.53-.31-.71-.98-.41-1.51.31-.53.98-.71,1.51-.41l4.66,2.54-.63-4.58c-.1-.76.43-1.46,1.19-1.57.76-.1,1.46.43,1.57,1.19l.87,6.32c.01.09.02.19.01.28l2.62,1.43-1.19-8.59c-.1-.76.43-1.46,1.19-1.57.76-.1,1.46.43,1.57,1.19l1.45,10.53s0,.06,0,.09l3.48,1.89-1.84-13.34c-.1-.76.43-1.46,1.19-1.57.76-.1,1.46.43,1.57,1.19l2.12,15.37,3.27,1.78-2.35-17.03c-.1-.76.43-1.46,1.19-1.57.18-.03.36-.01.53.03.41-.12.87-.04,1.23.24l12.88,10.01.09-3.72-11.56-8.98c-.61-.47-.72-1.35-.24-1.95.47-.61,1.35-.72,1.95-.24l9.94,7.72.1-3.95-7.78-6.04c-.61-.47-.72-1.35-.24-1.95.47-.61,1.35-.72,1.95-.24l6.16,4.78.07-2.95-4.58-3.56c-.61-.47-.72-1.35-.24-1.95.47-.61,1.35-.72,1.95-.24l2.96,2.3.12-4.77c0-.61.5-1.11,1.11-1.11s1.11.5,1.11,1.11l.13,5.31,3.65-2.84c.61-.47,1.48-.36,1.95.24.47.61.36,1.48-.24,1.95l-5.04,3.92c-.07.06-.15.11-.23.15l.07,2.98,6.85-5.32c.61-.47,1.48-.36,1.95.24.47.61.36,1.48-.24,1.95l-8.4,6.52s-.05.04-.07.05l.1,3.96,10.63-8.26c.61-.47,1.48-.36,1.95.24.47.61.36,1.48-.24,1.95l-12.25,9.52.09,3.72,13.57-10.55c.61-.47,1.48-.36,1.95.24.11.15.19.31.24.48.31.3.47.73.41,1.19l-2.23,16.16,3.27-1.78,2-14.5c.1-.76.81-1.29,1.57-1.19.76.1,1.29.81,1.19,1.57l-1.72,12.47,3.47-1.89,1.35-9.76c.1-.76.81-1.29,1.57-1.19.76.1,1.29.81,1.19,1.57l-1.07,7.72,2.59-1.41.79-5.75c.1-.76.81-1.29,1.57-1.19.76.1,1.29.81,1.19,1.57l-.51,3.71,4.19-2.28c.53-.31,1.21-.12,1.51.41.31.53.12,1.21-.41,1.51l-4.53,2.77,4.28,1.74c.71.29,1.05,1.1.76,1.81-.29.71-1.1,1.05-1.81.76l-5.91-2.41c-.09-.04-.17-.08-.24-.13l-2.54,1.55,8.03,3.27c.71.29,1.05,1.1.76,1.81-.29.71-1.1,1.05-1.81.76l-9.85-4.01s-.06-.02-.08-.04l-3.38,2.06,12.47,5.07c.71.29,1.05,1.1.76,1.81-.29.71-1.1,1.05-1.81.76l-14.37-5.85-3.18,1.94,15.92,6.48c.71.29,1.05,1.1.76,1.81-.07.17-.17.32-.29.45-.1.41-.4.78-.82.95l-15.11,6.15,3.18,1.94,13.56-5.52c.71-.29,1.52.05,1.81.76.29.71-.05,1.52-.76,1.81l-11.66,4.74,3.38,2.06,9.12-3.71c.71-.29,1.52.05,1.81.76.29.71-.05,1.52-.76,1.81l-7.22,2.94,2.51,1.54,5.37-2.19c.71-.29,1.52.05,1.81.76.29.71-.05,1.52-.76,1.81l-3.47,1.41,4.07,2.49c.53.31.71.98.41,1.51-.31.53-.98.71-1.51.41l-4.66-2.54.63,4.58c.1.76-.43,1.46-1.19,1.57-.76.1-1.46-.43-1.57-1.19l-.87-6.32c-.01-.09-.02-.19-.01-.28l-2.62-1.43,1.19,8.59c.1.76-.43,1.46-1.19,1.57-.76.1-1.46-.43-1.57-1.19l-1.45-10.53s0-.06,0-.09l-3.48-1.89,1.84,13.34c.1.76-.43,1.46-1.19,1.57-.76.1-1.46-.43-1.57-1.19l-2.12-15.37-3.27-1.78,2.35,17.03c.1.76-.43,1.46-1.19,1.57-.18.03-.36.01-.53-.03-.41.12-.87.04-1.23-.24l-12.88-10.01-.09,3.72,11.56,8.98c.61.47.72,1.34.24,1.95-.47.61-1.35.72-1.95.24l-9.94-7.72-.1,3.95,7.78,6.04c.61.47.72,1.35.24,1.95-.47.61-1.35.72-1.95.24l-6.16-4.78-.07,2.95,4.58,3.56c.61.47.72,1.35.24,1.95-.47.61-1.35.72-1.95.24l-2.96-2.3-.12,4.77c0,.61-.5,1.11-1.11,1.11s-1.11-.5-1.11-1.11l-.13-5.31-3.65,2.84c-.61.47-1.48.36-1.95-.24-.47-.61-.36-1.48.24-1.95l5.04-3.92c.07-.06.15-.11.23-.15l-.07-2.98-6.85,5.32c-.61.47-1.48.36-1.95-.24-.47-.61-.36-1.48.24-1.95l8.4-6.52s.05-.04.07-.05l-.1-3.96-10.63,8.26c-.61.47-1.48.36-1.95-.24s-.36-1.48.24-1.95l12.25-9.52-.09-3.72-13.57,10.55c-.61.47-1.48.36-1.95-.24-.11-.15-.19-.31-.24-.48-.31-.3-.47-.73-.41-1.19l2.23-16.16-3.27,1.78-2,14.5c-.1.76-.81,1.29-1.57,1.19-.76-.1-1.29-.81-1.19-1.57l1.72-12.47-3.47,1.89-1.35,9.76c-.1.76-.81,1.29-1.57,1.19-.76-.1-1.29-.81-1.19-1.57l1.07-7.72-2.59,1.41-.79,5.75c-.1.76-.81,1.29-1.57,1.19-.76-.1-1.29-.81-1.19-1.57l.51-3.71-4.19,2.28c-.53.31-1.21.12-1.51-.41-.31-.53-.12-1.21.41-1.51l4.53-2.77ZM10.76,45.78l15.26,6.21,6.41-3.92-10.78-.7c-.68,0-1.23-.54-1.24-1.22,0-.68.54-1.23,1.22-1.24l10.95-.86-7.02-4.29-14.8,6.02ZM25.61,20.52l2.25,16.32,6.6,3.59-4.79-9.69c-.34-.59-.15-1.34.44-1.68.59-.34,1.34-.15,1.68.44l6.23,9.05.2-8.23-12.61-9.8ZM54.91,20.75l-13,10.11.19,7.51,6-8.99c.34-.59,1.09-.8,1.68-.46.59.34.8,1.09.46,1.68l-4.73,9.92,7.23-3.94,2.18-15.82ZM69.36,46.25l-15.26-6.21-6.41,3.92,10.78.7c.68,0,1.23.54,1.24,1.22,0,.68-.54,1.23-1.22,1.24l-10.95.86,7.02,4.29,14.8-6.02ZM54.51,71.5l-2.25-16.32-6.6-3.59,4.79,9.69c.34.59.15,1.34-.44,1.68-.59.34-1.34.15-1.68-.44l-6.23-9.05-.2,8.23,12.61,9.8ZM25.21,71.27l13-10.11-.19-7.51-6,8.99c-.34.59-1.09.8-1.68.46-.59-.34-.8-1.09-.46-1.68l4.73-9.92-7.23,3.94-2.18,15.82Z" style="fill:url(#${gradientId}); fill-rule:evenodd; stroke-width:0px;"/></svg>`;
+    },
+    (color1, color2) => {
+        const gradientId = getUniqueId();
+        return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22"><defs><radialGradient id="${gradientId}" cx="11" cy="11" r="11" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="${color1}"/><stop offset="1" stop-color="${color2}"/></radialGradient></defs><circle cx="11" cy="11" r="11" style="fill:url(#${gradientId}); stroke-width:0px;"/></svg>`;
+    },
+    (color1, color2) => {
+        const gradientId = getUniqueId();
+        return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 54"><defs><linearGradient id="${gradientId}" x1="0" y1="0" x2="65" y2="54" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="${color1}"/><stop offset="1" stop-color="${color2}"/></linearGradient></defs><path d="M65,26c0,14.91-23.09,28-38,28S0,41.91,0,27,12.09,0,27,0s38,11.09,38,26Z" style="fill:url(#${gradientId}); fill-rule:evenodd; stroke-width:0px;"/></svg>`;
+    }
+];
+
 class ConfettiBackground {
     constructor(containerSelector, options = {}) {
         this.container = typeof containerSelector === 'string' 
@@ -71,17 +90,25 @@ class ConfettiBackground {
             throw new Error(`ConfettiBackground: Container not found with selector "${containerSelector}"`);
         }
         
+        const useSnowflakes = !!options.useSnowflakes;
+        const resolvedRibbons = options.ribbons || (useSnowflakes ? snowflakeTemplates : ribbonTemplates);
+        const resolvedWeights = options.ribbonWeights || new Array(resolvedRibbons.length).fill(1);
+
         this.options = {
-            ribbons: options.ribbons || ribbonTemplates,
+            ...options,
+            ribbons: resolvedRibbons,
+            ribbonWeights: resolvedWeights,
+            useSnowflakes,
             count: options.count || 100,
             colors: options.colors || ['#E9D742', '#96CD61', '#2AAEDA', '#F5AA44', '#F2724C', '#EA3D82', '#EB3864', '#DC2F8E', '#CA2537', '#6955A2', '#A22B8D'],
             parallax: options.parallax !== undefined ? options.parallax : true,
-            minSize: options.minSize || 50,  // Minimum confetti size in viewBox units
-            maxSize: options.maxSize || 100, // Maximum confetti size in viewBox units
-            // Weights for each ribbon shape (corresponds to ribbons array)
-            // Higher weight = more likely to appear. Default: equal weights
-            ribbonWeights: options.ribbonWeights || [1, 1, 1, 1, 1, 1, 1, 1, 1],
-            ...options
+            minSize: options.minSize || 25,  // Minimum confetti size in viewBox units
+            maxSize: options.maxSize || 75, // Maximum confetti size in viewBox units
+            gravity: options.gravity ?? 0, // Optional gravity (true uses default strength)
+            wind: options.wind ?? 0, // Optional wind drift (true uses default strength)
+            clipToBounds: options.clipToBounds !== false, // Clip confetti to container bounds
+            shadowColor: options.shadowColor || 'rgba(0, 0, 0, 0.35)',
+            blurMultiplier: options.blurMultiplier !== undefined ? Math.max(0, options.blurMultiplier) : 1
         };
 
         // Calculate cumulative weights for weighted random selection
@@ -93,26 +120,81 @@ class ConfettiBackground {
         }
         this.totalWeight = sum;
 
+        this.svgLayer = null;
         this.svg = null;
         this.confettiElements = [];
+        // Runtime state for optional gravity / wind animation
+        this.motionAnimationFrame = null;
+        this.lastMotionUpdate = null;
+        this.gravityStrength = this.normalizeGravity(this.options.gravity);
+        this.windStrength = this.normalizeWind(this.options.wind);
+        this.shadowColor = this.parseShadowColor(this.options.shadowColor);
+        this.recalculateWeights();
         this.init();
         
         if (this.options.parallax) {
             this.initParallax();
         }
+
+        if (this.gravityStrength || this.windStrength) {
+            this.initMotion();
+        }
+    }
+
+    recalculateWeights() {
+        this.cumulativeWeights = [];
+        let sum = 0;
+        const weights = this.options.ribbonWeights;
+
+        if (!weights || !weights.length) {
+            this.options.ribbonWeights = new Array(this.options.ribbons.length).fill(1);
+        }
+
+        for (let i = 0; i < this.options.ribbons.length; i++) {
+            const weight = this.options.ribbonWeights[i] ?? 1;
+            sum += weight;
+            this.cumulativeWeights.push(sum);
+        }
+        this.totalWeight = sum || 1;
     }
 
     init() {
+        if (this.options.clipToBounds && typeof window !== 'undefined') {
+            const computed = window.getComputedStyle(this.container);
+
+            if (computed.position === 'static') {
+                this.container.style.position = 'relative';
+            }
+
+            if (computed.overflow === 'visible') {
+                this.container.style.overflow = 'hidden';
+            }
+        }
+
+        // Remove any previous confetti layer injected by this instance
+        Array.from(this.container.children).forEach(child => {
+            if (child.classList && child.classList.contains('confetti-background-layer')) {
+                this.container.removeChild(child);
+            }
+        });
+
+        // Create SVG layer container
+        this.svgLayer = document.createElement('div');
+        this.svgLayer.className = 'confetti-background-layer';
+        this.svgLayer.style.position = 'absolute';
+        this.svgLayer.style.top = '0';
+        this.svgLayer.style.left = '0';
+        this.svgLayer.style.width = '100%';
+        this.svgLayer.style.height = '100%';
+        this.svgLayer.style.pointerEvents = 'none';
+        this.svgLayer.style.zIndex = (this.options.layerZIndex ?? 0).toString();
+
         // Create SVG element
         this.svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
         this.svg.setAttribute('width', '100%');
         this.svg.setAttribute('height', '100%');
         this.svg.setAttribute('viewBox', '0 0 1000 1000');
         this.svg.setAttribute('preserveAspectRatio', 'xMidYMid slice');
-        this.svg.style.position = 'absolute';
-        this.svg.style.top = '0';
-        this.svg.style.left = '0';
-        this.svg.style.pointerEvents = 'none';
 
         // Add defs for gradients and filters
         this.createDefs();
@@ -122,22 +204,29 @@ class ConfettiBackground {
             this.createConfetti();
         }
 
-        this.container.appendChild(this.svg);
+        this.svgLayer.appendChild(this.svg);
+
+        if (this.container.firstChild) {
+            this.container.insertBefore(this.svgLayer, this.container.firstChild);
+        } else {
+            this.container.appendChild(this.svgLayer);
+        }
     }
 
     createDefs() {
         const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
 
         // Create multiple filters with varying blur amounts for depth of field
-        const blurLevels = [
-            { id: 'confetti-blur-0', blur: 0, shadow: 1.5 },    // Far - slightly blurred
-            { id: 'confetti-blur-1', blur: 0.5, shadow: 1.8 },  // Mid-far
-            { id: 'confetti-blur-2', blur: 0, shadow: 2 },      // Focus plane - sharp
-            { id: 'confetti-blur-3', blur: 1, shadow: 2 },      // Mid-near
-            { id: 'confetti-blur-4', blur: 2.5, shadow: 2 }     // Near - more blurred
+        const zeroBlurBase = this.options.useSnowflakes ? this.options.blurMultiplier : 0;
+        const baseBlurLevels = [
+            { id: 'confetti-blur-0', blur: zeroBlurBase, shadow: 1.5 }, // Far
+            { id: 'confetti-blur-1', blur: 0.5, shadow: 1.8 },
+            { id: 'confetti-blur-2', blur: zeroBlurBase, shadow: 2 },   // Focus plane
+            { id: 'confetti-blur-3', blur: 1, shadow: 2 },
+            { id: 'confetti-blur-4', blur: 2.5, shadow: 2 }
         ];
 
-        blurLevels.forEach(level => {
+        baseBlurLevels.forEach(level => {
             const filter = document.createElementNS('http://www.w3.org/2000/svg', 'filter');
             filter.setAttribute('id', level.id);
             filter.setAttribute('x', '-50%');
@@ -149,15 +238,29 @@ class ConfettiBackground {
             const feShadowBlur = document.createElementNS('http://www.w3.org/2000/svg', 'feGaussianBlur');
             feShadowBlur.setAttribute('in', 'SourceAlpha');
             feShadowBlur.setAttribute('stdDeviation', level.shadow);
+            feShadowBlur.setAttribute('result', 'shadowBlur');
 
             const feOffset = document.createElementNS('http://www.w3.org/2000/svg', 'feOffset');
+            feOffset.setAttribute('in', 'shadowBlur');
             feOffset.setAttribute('dx', '2');
             feOffset.setAttribute('dy', '2');
-            feOffset.setAttribute('result', 'offsetblur');
+            feOffset.setAttribute('result', 'offsetBlur');
+
+            const feFlood = document.createElementNS('http://www.w3.org/2000/svg', 'feFlood');
+            feFlood.setAttribute('flood-color', this.shadowColor.color);
+            feFlood.setAttribute('flood-opacity', this.shadowColor.opacity);
+            feFlood.setAttribute('result', 'shadowColor');
+
+            const feComposite = document.createElementNS('http://www.w3.org/2000/svg', 'feComposite');
+            feComposite.setAttribute('in', 'shadowColor');
+            feComposite.setAttribute('in2', 'offsetBlur');
+            feComposite.setAttribute('operator', 'in');
+            feComposite.setAttribute('result', 'shadow');
 
             const feMerge1 = document.createElementNS('http://www.w3.org/2000/svg', 'feMerge');
             const feMergeNode1 = document.createElementNS('http://www.w3.org/2000/svg', 'feMergeNode');
             const feMergeNode2 = document.createElementNS('http://www.w3.org/2000/svg', 'feMergeNode');
+            feMergeNode1.setAttribute('in', 'shadow');
             feMergeNode2.setAttribute('in', 'SourceGraphic');
 
             feMerge1.appendChild(feMergeNode1);
@@ -165,15 +268,30 @@ class ConfettiBackground {
 
             filter.appendChild(feShadowBlur);
             filter.appendChild(feOffset);
+            filter.appendChild(feFlood);
+            filter.appendChild(feComposite);
             filter.appendChild(feMerge1);
 
             // Add depth of field blur if needed
-            if (level.blur > 0) {
+            const depthBlurValue = level.blur * this.options.blurMultiplier;
+            if (depthBlurValue > 0) {
                 const feDepthBlur = document.createElementNS('http://www.w3.org/2000/svg', 'feGaussianBlur');
-                feDepthBlur.setAttribute('stdDeviation', level.blur);
-                feDepthBlur.setAttribute('result', 'blurred');
-                
+                feDepthBlur.setAttribute('stdDeviation', depthBlurValue);
+                feDepthBlur.setAttribute('in', 'SourceGraphic');
+                feDepthBlur.setAttribute('result', 'blurredGraphic');
+
+                const feMergeFinal = document.createElementNS('http://www.w3.org/2000/svg', 'feMerge');
+                const feMergeFinalNode1 = document.createElementNS('http://www.w3.org/2000/svg', 'feMergeNode');
+                const feMergeFinalNode2 = document.createElementNS('http://www.w3.org/2000/svg', 'feMergeNode');
+                feMergeFinalNode1.setAttribute('in', 'shadow');
+                feMergeFinalNode2.setAttribute('in', 'blurredGraphic');
+
                 filter.appendChild(feDepthBlur);
+                feMergeFinal.appendChild(feMergeFinalNode1);
+                feMergeFinal.appendChild(feMergeFinalNode2);
+                filter.appendChild(feMergeFinal);
+            } else {
+                filter.appendChild(feMerge1);
             }
 
             defs.appendChild(filter);
@@ -201,8 +319,7 @@ class ConfettiBackground {
         const element = this.createRibbon(colorIndex);
 
         const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-        g.setAttribute('transform', `translate(${x}, ${y}) rotate(${rotation}) scale(${scale})`);
-        
+
         // Apply depth-based blur filter
         // Map depth (0-1) to blur levels (0-4)
         // 0.0-0.2 = far (blur-0)
@@ -217,16 +334,35 @@ class ConfettiBackground {
 
         this.svg.appendChild(g);
 
-        // Store confetti data for parallax
-        this.confettiElements.push({
+        // Store confetti data for parallax, gravity, and animation state
+        const confettiData = {
             element: g,
             baseX: x,
             baseY: y,
             rotation: rotation,
             scale: scale,
             depth: depth,
-            parallaxSpeed: 0.5 + depth * 1.5 // Speed multiplier (0.5 to 2.0)
-        });
+            parallaxSpeed: 0.5 + depth * 1.5, // Speed multiplier (0.5 to 2.0)
+            parallaxOffset: 0,
+            gravityOffset: 0,
+            gravityVelocity: 0,
+            windOffset: 0,
+            windVelocity: 0,
+            rotationVelocity: 0
+        };
+
+        this.confettiElements.push(confettiData);
+        this.updateConfettiTransform(confettiData);
+    }
+
+    updateConfettiTransform(confetti) {
+        // Compose the vertical position from base, parallax scroll, and gravity offsets
+        const translateX = confetti.baseX + (confetti.windOffset || 0);
+        const translateY = confetti.baseY + (confetti.parallaxOffset || 0) + (confetti.gravityOffset || 0);
+        confetti.element.setAttribute(
+            'transform',
+            `translate(${translateX}, ${translateY}) rotate(${confetti.rotation}) scale(${confetti.scale})`
+        );
     }
 
     createRibbon(colorIndex) {
@@ -317,129 +453,221 @@ class ConfettiBackground {
         
         this.confettiElements.forEach(confetti => {
             const offset = scrollY * confetti.parallaxSpeed * 0.3; // 0.3 is the overall parallax intensity
-            const newY = confetti.baseY + offset;
-            
-            confetti.element.setAttribute(
-                'transform',
-                `translate(${confetti.baseX}, ${newY}) rotate(${confetti.rotation}) scale(${confetti.scale})`
-            );
+            confetti.parallaxOffset = offset;
+            this.updateConfettiTransform(confetti);
         });
     }
 
     regenerate() {
+        if (this.motionAnimationFrame) {
+            cancelAnimationFrame(this.motionAnimationFrame);
+            this.motionAnimationFrame = null;
+        }
+
         this.svg.innerHTML = '';
         this.confettiElements = [];
+        this.shadowColor = this.parseShadowColor(this.options.shadowColor);
+        this.recalculateWeights();
         this.createDefs();
         for (let i = 0; i < this.options.count; i++) {
             this.createConfetti();
         }
+
+        if (this.options.parallax) {
+            this.updateParallax();
+        } else {
+            this.confettiElements.forEach(confetti => this.updateConfettiTransform(confetti));
+        }
+
+        // Re-initialize forces so new particles respect the latest settings
+        this.gravityStrength = this.normalizeGravity(this.options.gravity);
+        this.windStrength = this.normalizeWind(this.options.wind);
+        if (this.gravityStrength || this.windStrength) {
+            this.initMotion();
+        }
     }
 
-    static help() {
-        console.log(`
-╔═══════════════════════════════════════════════════════════════════════════╗
-║                    🎉 CONFETTI BACKGROUND HELP 🎉                          ║
-╚═══════════════════════════════════════════════════════════════════════════╝
+    initMotion() {
+        // Normalize in case options changed after instantiation
+        this.gravityStrength = this.normalizeGravity(this.options.gravity);
+        this.windStrength = this.normalizeWind(this.options.wind);
 
-USAGE:
-  const confetti = new ConfettiBackground(selector, options);
-  // selector can be any CSS selector: '#id', '.class', '[data-attr]', etc.
-  // Or pass a DOM element directly
+        if (!this.gravityStrength && !this.windStrength) {
+            return;
+        }
 
-AVAILABLE OPTIONS:
-┌───────────────────────────────────────────────────────────────────────────┐
-│ ribbons          │ Array of ribbon template functions                     │
-│                  │ Default: ribbonTemplates (9 built-in ribbon shapes)    │
-│                  │                                                         │
-│ count            │ Number of confetti pieces to generate                  │
-│                  │ Default: 100                                            │
-│                  │                                                         │
-│ colors           │ Array of color hex codes for gradients                 │
-│                  │ Default: ['#E9D742', '#96CD61', '#2AAEDA', ...]        │
-│                  │ Note: Gradients favor adjacent colors in the array     │
-│                  │                                                         │
-│ parallax         │ Enable/disable parallax scrolling effect               │
-│                  │ Default: true                                           │
-│                  │                                                         │
-│ minSize          │ Minimum confetti size in viewBox units                 │
-│                  │ Default: 50                                             │
-│                  │                                                         │
-│ maxSize          │ Maximum confetti size in viewBox units                 │
-│                  │ Default: 100                                            │
-│                  │                                                         │
-│ ribbonWeights    │ Array of weights for each ribbon shape                 │
-│                  │ Higher weight = more likely to appear                  │
-│                  │ Default: [1, 1, 1, 1, 1, 1, 1, 1, 1] (equal weights)   │
-└───────────────────────────────────────────────────────────────────────────┘
+        if (this.motionAnimationFrame) {
+            cancelAnimationFrame(this.motionAnimationFrame);
+            this.motionAnimationFrame = null;
+        }
 
-RIBBON SHAPES (0-8):
-  0: Complex twisted ribbon (large)
-  1: Curved flowing ribbon (medium)
-  2: Multi-curve ribbon (medium)
-  3: Spiral twisted ribbon (medium)
-  4: Angular flowing ribbon (large)
-  5: Short curved ribbon (small)
-  6: Thin twisted ribbon (small)
-  7: Minimal curved ribbon (tiny)
-  8: Simple rectangular ribbon (tiny)
+        this.lastMotionUpdate = null;
 
-EXAMPLES:
+        const rotationBase = Math.max(this.gravityStrength, Math.abs(this.windStrength));
 
-  // Basic usage with ID selector
-  new ConfettiBackground('#container');
+        this.confettiElements.forEach(confetti => {
+            // Preserve current offsets so motion can resume gracefully
+            confetti.gravityOffset = confetti.gravityOffset || 0;
+            confetti.windOffset = confetti.windOffset || 0;
+            confetti.gravityVelocity = this.gravityStrength ? this.getConfettiGravityVelocity(confetti) : 0;
+            confetti.windVelocity = this.windStrength ? this.getConfettiWindVelocity(confetti) : 0;
 
-  // Using class selector
-  new ConfettiBackground('.background-wrapper');
+            // Add a subtle spin to sell the motion (scaled by strongest force)
+            confetti.rotationVelocity = rotationBase > 0
+                ? (Math.random() - 0.5) * 40 * (rotationBase / 60)
+                : 0;
+        });
 
-  // Using data attribute
-  new ConfettiBackground('[data-confetti]');
+        const animate = (timestamp) => {
+            if (!this.lastMotionUpdate) {
+                this.lastMotionUpdate = timestamp;
+            }
 
-  // Pass DOM element directly
-  const element = document.getElementById('container');
-  new ConfettiBackground(element);
+            const deltaSeconds = (timestamp - this.lastMotionUpdate) / 1000;
+            this.lastMotionUpdate = timestamp;
 
-  // Custom colors and count
-  // Tip: Arrange colors in a harmonious sequence for best gradient results
-  new ConfettiBackground('#container', {
-    count: 200,
-    colors: ['#FF0000', '#FF6600', '#FFCC00', '#00FF00', '#0000FF']
-  });
+            this.confettiElements.forEach(confetti => {
+                // Apply velocity over elapsed time for smooth motion
+                if (this.gravityStrength) {
+                    confetti.gravityOffset += confetti.gravityVelocity * deltaSeconds;
+                }
 
-  // Favor simpler shapes (ribbons 7-8)
-  new ConfettiBackground('#container', {
-    ribbonWeights: [1, 1, 1, 1, 1, 1, 1, 5, 5]
-  });
+                if (this.windStrength) {
+                    confetti.windOffset += confetti.windVelocity * deltaSeconds;
+                }
 
-  // Larger size range
-  new ConfettiBackground('#container', {
-    minSize: 30,
-    maxSize: 200
-  });
+                confetti.rotation = (confetti.rotation + confetti.rotationVelocity * deltaSeconds) % 360;
+                if (confetti.rotation < 0) {
+                    confetti.rotation += 360;
+                }
 
-  // Disable parallax
-  new ConfettiBackground('#container', {
-    parallax: false
-  });
+                const visibleY = confetti.baseY + (confetti.parallaxOffset || 0) + confetti.gravityOffset;
+                const visibleX = confetti.baseX + confetti.windOffset;
 
-  // Only use specific ribbons
-  new ConfettiBackground('#container', {
-    ribbonWeights: [1, 0, 1, 0, 1, 0, 0, 0, 0]  // Only ribbons 0, 2, 4
-  });
+                let reset = false;
 
-METHODS:
+                if (this.gravityStrength && visibleY > 1100) {
+                    // Recycle pieces back to the top when they leave the viewport vertically
+                    confetti.baseY = -50 - Math.random() * 200;
+                    confetti.baseX = Math.random() * 1000;
+                    confetti.gravityOffset = 0;
+                    confetti.windOffset = 0;
+                    confetti.gravityVelocity = this.gravityStrength ? this.getConfettiGravityVelocity(confetti) : 0;
+                    confetti.windVelocity = this.windStrength ? this.getConfettiWindVelocity(confetti) : 0;
+                    confetti.rotation = Math.random() * 360;
+                    reset = true;
+                }
 
-  confetti.regenerate()  // Regenerate all confetti pieces
+                if (!reset && this.windStrength) {
+                    const windDirection = Math.sign(this.windStrength) || 1;
+                    if (windDirection > 0 && visibleX > 1150) {
+                        // Re-enter from the left when drifting right
+                        confetti.baseX = -150 - Math.random() * 150;
+                        confetti.windOffset = 0;
+                        confetti.windVelocity = this.getConfettiWindVelocity(confetti);
+                        reset = true;
+                    } else if (windDirection < 0 && visibleX < -150) {
+                        // Re-enter from the right when drifting left
+                        confetti.baseX = 1150 + Math.random() * 150;
+                        confetti.windOffset = 0;
+                        confetti.windVelocity = this.getConfettiWindVelocity(confetti);
+                        reset = true;
+                    }
+                }
 
-FEATURES:
-  ✨ Depth of field blur effect
-  ✨ Parallax scrolling
-  ✨ Harmonious color gradients (adjacent colors favored)
-  ✨ Weighted random ribbon selection
-  ✨ Depth-based sizing
-  ✨ 3D shadow effects
+                if (reset) {
+                    const rotationInfluence = Math.max(this.gravityStrength, Math.abs(this.windStrength));
+                    confetti.rotationVelocity = rotationInfluence > 0
+                        ? (Math.random() - 0.5) * 40 * (rotationInfluence / 60)
+                        : 0;
+                }
 
-For more info: https://github.com/your-repo
-        `);
+                this.updateConfettiTransform(confetti);
+            });
+
+            this.motionAnimationFrame = requestAnimationFrame(animate);
+        };
+
+        this.motionAnimationFrame = requestAnimationFrame(animate);
+    }
+
+    getConfettiGravityVelocity(confetti) {
+        // Nearer pieces fall faster to maintain the depth illusion
+        const depthInfluence = 0.4 + confetti.depth * 1.6; // 0.4 (far) -> 2.0 (near)
+        return this.gravityStrength * depthInfluence;
+    }
+
+    getConfettiWindVelocity(confetti) {
+        // Smaller (farther) pieces drift more dramatically; keep consistent direction with wind strength
+        const magnitude = Math.abs(this.windStrength);
+        if (!magnitude) {
+            return 0;
+        }
+
+        const depthInfluence = 0.6 + (1 - confetti.depth) * 1.6; // 2.2 (far) -> 0.6 (near)
+        const variation = 0.7 + Math.random() * 0.6; // mild per-piece variance, preserves direction
+        const direction = Math.sign(this.windStrength) || 1;
+
+        return direction * magnitude * depthInfluence * variation;
+    }
+
+    clamp(value, min, max) {
+        return Math.min(max, Math.max(min, value));
+    }
+
+    parseShadowColor(value) {
+        const fallback = { color: '#000000', opacity: 0.35 };
+
+        if (typeof value !== 'string') {
+            return fallback;
+        }
+
+        const rgbaMatch = value.match(/rgba?\(\s*([\d.]+)\s*,\s*([\d.]+)\s*,\s*([\d.]+)(?:\s*,\s*([\d.]+))?\s*\)/i);
+
+        if (rgbaMatch) {
+            const r = this.clamp(Math.round(parseFloat(rgbaMatch[1])), 0, 255);
+            const g = this.clamp(Math.round(parseFloat(rgbaMatch[2])), 0, 255);
+            const b = this.clamp(Math.round(parseFloat(rgbaMatch[3])), 0, 255);
+            const opacity = rgbaMatch[4] !== undefined
+                ? this.clamp(parseFloat(rgbaMatch[4]), 0, 1)
+                : 1;
+
+            return {
+                color: `rgb(${r}, ${g}, ${b})`,
+                opacity
+            };
+        }
+
+        // If it's a valid CSS color (non-RGBA), use it with full opacity
+        return {
+            color: value,
+            opacity: 1
+        };
+    }
+
+    normalizeGravity(value) {
+        if (typeof value === 'number' && !Number.isNaN(value)) {
+            return Math.max(0, value);
+        }
+
+        if (value === true) {
+            return 60; // default gravity strength in viewBox units per second
+        }
+
+        return 0;
+    }
+
+    normalizeWind(value) {
+        if (typeof value === 'number' && !Number.isNaN(value)) {
+            const clamped = Math.min(300, Math.max(-300, value));
+            return clamped;
+        }
+
+        if (value === true) {
+            return 80; // default wind strength in viewBox units per second
+        }
+
+        return 0;
     }
 }
 
@@ -447,4 +675,3 @@ For more info: https://github.com/your-repo
 // new ConfettiBackground('#container', { count: 150 });
 // new ConfettiBackground('.my-background');
 // new ConfettiBackground('[data-confetti]');
-// ConfettiBackground.help(); // Show help in console

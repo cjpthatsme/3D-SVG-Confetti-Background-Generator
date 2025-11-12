@@ -11,16 +11,6 @@
             padding: 0;
             font-family: Arial, sans-serif;
             background: black;
-            min-height: 300vh;
-        }
-
-        #container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: 0;
         }
 
         .content {
@@ -32,6 +22,101 @@
             color: white;
         }
 
+        .controls {
+            width: 100%;
+            max-width: 600px;
+            margin: 30px auto 20px;
+            padding: 20px 24px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+        }
+
+        .controls h2 {
+            margin: 0 0 16px;
+            font-size: 1.3rem;
+        }
+
+        .control {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 18px;
+        }
+
+        .control:last-child {
+            margin-bottom: 0;
+        }
+
+        .control label {
+            font-size: 0.95rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .toggle-wrapper {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            width: 48px;
+            height: 24px;
+            margin-left: 12px;
+        }
+
+        .toggle-wrapper input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 999px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .toggle-slider::before {
+            content: '';
+            position: absolute;
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            top: 3px;
+            border-radius: 50%;
+            background: #ffffff;
+            transition: transform 0.3s;
+        }
+
+        .toggle-wrapper input:checked + .toggle-slider {
+            background: #5a77ff;
+        }
+
+        .toggle-wrapper input:checked + .toggle-slider::before {
+            transform: translateX(24px);
+        }
+
+        .control span.value {
+            font-weight: bold;
+            margin-left: 12px;
+            color: #fff;
+        }
+
+        .control input[type="range"] {
+            width: 100%;
+        }
+
+        .hint {
+            font-size: 0.85rem;
+            margin: 0 0 18px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
         .section {
             min-height: 100vh;
             display: flex;
@@ -39,6 +124,35 @@
             align-items: center;
             justify-content: center;
             text-align: center;
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(118, 75, 162, 0.35));
+            z-index: 0;
+        }
+
+        .hero.snow::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(15, 16, 30, 0.4), rgba(75, 114, 162, 0.35));
+            z-index: 0;
+        }
+
+        .section-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         h1 {
@@ -68,6 +182,24 @@
             transform: translateY(0);
         }
 
+        .embed-snippet {
+            margin: 24px auto 0;
+            text-align: left;
+            background: rgba(14, 17, 23, 0.85);
+            border-radius: 12px;
+            padding: 16px 20px;
+            font-size: 0.85rem;
+            color: #86e1ff;
+            max-width: 600px;
+            overflow: auto;
+            border: 1px solid rgba(134, 225, 255, 0.2);
+        }
+
+        .embed-snippet code {
+            color: inherit;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
         .scroll-indicator {
             margin-top: 30px;
             font-size: 2rem;
@@ -75,12 +207,19 @@
         }
 
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
                 transform: translateY(0);
             }
+
             40% {
                 transform: translateY(-10px);
             }
+
             60% {
                 transform: translateY(-5px);
             }
@@ -89,32 +228,250 @@
 </head>
 
 <body>
-    <div id="container"></div>
-    
-    <div class="content">
-        <div class="section">
-            <h1>SVG CONFETTI</h1>
-            <p>With parallax and other 3D effects!</p>
-            <p>In the console, use<br>ConfettiBackground.help()<br>to see the settings you can pass.</p>
+
+    <section id="confetti-container" class="section hero">
+        <div class="section-content">
+            <div class="content">
+                <h1>SVG CONFETTI</h1>
+                <p>With parallax and other 3D effects!</p>
+                <div class="controls">
+                    <h2>Experiment With Settings</h2>
+                    <p class="hint">Adjust the sliders and wait briefly—confetti regenerates 0.5s after changes stop.</p>
+                    <div class="control">
+                        <label for="count-slider">
+                            Confetti Count
+                            <span class="value" id="count-value">100</span>
+                        </label>
+                        <input type="range" id="count-slider" min="20" max="300" value="100">
+                    </div>
+                    <div class="control">
+                        <label for="min-size-slider">
+                            Minimum Size
+                            <span class="value" id="min-size-value">25</span>
+                        </label>
+                        <input type="range" id="min-size-slider" min="1" max="140" value="25">
+                    </div>
+                    <div class="control">
+                        <label for="max-size-slider">
+                            Maximum Size
+                            <span class="value" id="max-size-value">75</span>
+                        </label>
+                        <input type="range" id="max-size-slider" min="5" max="200" value="75">
+                    </div>
+                    <div class="control">
+                        <label for="wind-slider">
+                            Wind Strength
+                            <span class="value" id="wind-value">15</span>
+                        </label>
+                        <input type="range" id="wind-slider" min="-200" max="200" value="15">
+                    </div>
+                    <div class="control">
+                        <label for="gravity-slider">
+                            Gravity Strength
+                            <span class="value" id="gravity-value">60</span>
+                        </label>
+                        <input type="range" id="gravity-slider" min="0" max="120" value="60">
+                    </div>
+                    <div class="control">
+                        <label for="blur-slider">
+                            Blur Multiplier
+                            <span class="value" id="blur-value">1</span>
+                        </label>
+                        <input type="range" id="blur-slider" min="0" max="5" step="0.1" value="1">
+                    </div>
+                    <div class="control">
+                        <label>
+                            Snowflakes
+                            <span class="value" id="snow-toggle-value">Off</span>
+                        </label>
+                        <label class="toggle-wrapper">
+                            <input type="checkbox" id="snowflakes-toggle">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
             <button onclick="confetti.regenerate()">Generate New Confetti</button>
+            <pre id="embed-snippet" class="embed-snippet" aria-live="polite"></pre>
         </div>
-
-        <div class="section">
-        </div>
-
-        <div class="section">
-        </div>
-    </div>
+    </section>
 
     <script src="confetti_background.js"></script>
     <script>
-        // Initialize confetti background with CSS selector
-        const confetti = new ConfettiBackground('#container', {
-            count: 150,
-            ribbonWeights: [0, 1, 1, 1, 1, 1, 4, 5, 5]
+        // Initialize confetti background with defaults matching the UI
+        const confetti = new ConfettiBackground('#confetti-container', {
+            count: 100,
+            minSize: 25,
+            maxSize: 75,
+            wind: 0,
+            gravity: 0,
+            blurMultiplier: 1,
+            useSnowflakes: false
         });
 
-        // Try ConfettiBackground.help() in the console to see all options!
+        const sliders = {
+            count: document.getElementById('count-slider'),
+            minSize: document.getElementById('min-size-slider'),
+            maxSize: document.getElementById('max-size-slider'),
+            wind: document.getElementById('wind-slider'),
+            gravity: document.getElementById('gravity-slider'),
+            blurMultiplier: document.getElementById('blur-slider')
+        };
+
+        const displays = {
+            count: document.getElementById('count-value'),
+            minSize: document.getElementById('min-size-value'),
+            maxSize: document.getElementById('max-size-value'),
+            wind: document.getElementById('wind-value'),
+            gravity: document.getElementById('gravity-value'),
+            blurMultiplier: document.getElementById('blur-value'),
+            useSnowflakes: document.getElementById('snow-toggle-value')
+        };
+
+        const snowToggle = document.getElementById('snowflakes-toggle');
+        const embedOutput = document.getElementById('embed-snippet');
+
+        const formatWindValue = (value) => {
+            if (value === 0) return 'Off';
+            const direction = value > 0 ? 'Right' : 'Left';
+            return `${direction} ${Math.abs(value)}`;
+        };
+
+        const updateEmbedSnippet = () => {
+            const { count, minSize, maxSize, wind, gravity, blurMultiplier, useSnowflakes, colors } = confetti.options;
+            const formattedGravity = gravity === 0 ? '0 // Gravity disabled' : gravity;
+            let formattedWind;
+            if (wind === 0) {
+                formattedWind = '0 // Wind disabled';
+            } else {
+                const windDirection = wind > 0 ? 'right' : 'left';
+                formattedWind = `${wind} // Wind blowing ${windDirection}`;
+            }
+
+            embedOutput.innerHTML = `<code>` +
+                `new ConfettiBackground('#confetti-container', {<br>` +
+                `&nbsp;&nbsp;count: ${count},<br>` +
+                `&nbsp;&nbsp;minSize: ${minSize},<br>` +
+                `&nbsp;&nbsp;maxSize: ${maxSize},<br>` +
+                `&nbsp;&nbsp;wind: ${formattedWind},<br>` +
+                `&nbsp;&nbsp;gravity: ${formattedGravity},<br>` +
+                `&nbsp;&nbsp;blurMultiplier: ${blurMultiplier},<br>` +
+                `&nbsp;&nbsp;useSnowflakes: ${useSnowflakes},<br>` +
+                `&nbsp;&nbsp;colors: ${JSON.stringify(colors)}<br>` +
+                `});` +
+                `</code>`;
+        };
+
+        const formatGravityValue = (value) => (value === 0 ? 'Off' : value);
+
+        const debounce = (fn, delay) => {
+            let timeoutId;
+            return (...args) => {
+                clearTimeout(timeoutId);
+                timeoutId = setTimeout(() => fn(...args), delay);
+            };
+        };
+
+        const scheduleRegenerate = debounce(() => {
+            confetti.regenerate();
+        }, 500);
+
+        sliders.count.addEventListener('input', (event) => {
+            const value = Number(event.target.value);
+            confetti.options.count = value;
+            displays.count.textContent = value;
+            updateEmbedSnippet();
+            scheduleRegenerate();
+        });
+
+        sliders.minSize.addEventListener('input', (event) => {
+            let value = Number(event.target.value);
+            if (value > confetti.options.maxSize) {
+                value = confetti.options.maxSize;
+                sliders.minSize.value = value;
+            }
+            confetti.options.minSize = value;
+            displays.minSize.textContent = value;
+            updateEmbedSnippet();
+            scheduleRegenerate();
+        });
+
+        sliders.maxSize.addEventListener('input', (event) => {
+            let value = Number(event.target.value);
+            if (value < confetti.options.minSize) {
+                value = confetti.options.minSize;
+                sliders.maxSize.value = value;
+            }
+            confetti.options.maxSize = value;
+            displays.maxSize.textContent = value;
+            updateEmbedSnippet();
+            scheduleRegenerate();
+        });
+
+        sliders.wind.addEventListener('input', (event) => {
+            const value = Number(event.target.value);
+            confetti.options.wind = value === 0 ? 0 : value;
+            displays.wind.textContent = formatWindValue(value);
+            updateEmbedSnippet();
+            scheduleRegenerate();
+        });
+
+        sliders.gravity.addEventListener('input', (event) => {
+            const value = Number(event.target.value);
+            confetti.options.gravity = value === 0 ? 0 : value;
+            displays.gravity.textContent = formatGravityValue(value);
+            updateEmbedSnippet();
+            scheduleRegenerate();
+        });
+
+        sliders.blurMultiplier.addEventListener('input', (event) => {
+            const value = Number(event.target.value);
+            confetti.options.blurMultiplier = value;
+            displays.blurMultiplier.textContent = value.toFixed(1);
+            updateEmbedSnippet();
+            scheduleRegenerate();
+        });
+
+        snowToggle.addEventListener('change', (event) => {
+            const useSnowflakes = event.target.checked;
+            confetti.options.useSnowflakes = useSnowflakes;
+            if (useSnowflakes) {
+                confetti.options.ribbons = snowflakeTemplates;
+                confetti.options.minSize = 3;
+                confetti.options.maxSize = 10;
+                confetti.options.ribbonWeights = new Array(snowflakeTemplates.length).fill(1);
+                confetti.options.colors = ['#FFFFFF', '#D8F1FF', '#A8D8FF'];
+                confetti.options.blurMultiplier = Math.max(confetti.options.blurMultiplier, 2);
+                confetti.options.wind = Math.max(confetti.options.wind, 10);
+                confetti.options.gravity = Math.max(confetti.options.gravity, 40);
+            } else {
+                confetti.options.ribbons = ribbonTemplates;
+                confetti.options.minSize = 25;
+                confetti.options.maxSize = 75;
+                confetti.options.ribbonWeights = new Array(ribbonTemplates.length).fill(1);
+                confetti.options.colors = ['#E9D742', '#96CD61', '#2AAEDA', '#F5AA44', '#F2724C', '#EA3D82', '#EB3864', '#DC2F8E', '#CA2537', '#6955A2', '#A22B8D'];
+                confetti.options.blurMultiplier = Math.min(confetti.options.blurMultiplier, 1);
+                confetti.options.wind = 0;
+                confetti.options.gravity = 0;
+                sliders.wind.value = confetti.options.wind;
+                sliders.gravity.value = confetti.options.gravity;
+                displays.wind.textContent = formatWindValue(confetti.options.wind);
+                displays.gravity.textContent = formatGravityValue(confetti.options.gravity);
+            }
+            displays.useSnowflakes.textContent = useSnowflakes ? 'On' : 'Off';
+            sliders.blurMultiplier.value = confetti.options.blurMultiplier;
+            displays.blurMultiplier.textContent = Number(confetti.options.blurMultiplier).toFixed(1);
+            document.getElementById('confetti-container').classList.toggle('snow', useSnowflakes);
+            updateEmbedSnippet();
+            scheduleRegenerate();
+        });
+
+        // Ensure initial display formatting
+        displays.wind.textContent = formatWindValue(Number(sliders.wind.value));
+        displays.gravity.textContent = formatGravityValue(Number(sliders.gravity.value));
+        displays.blurMultiplier.textContent = Number(sliders.blurMultiplier.value).toFixed(1);
+        displays.useSnowflakes.textContent = snowToggle.checked ? 'On' : 'Off';
+        updateEmbedSnippet();
     </script>
 </body>
 
